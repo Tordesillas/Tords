@@ -1,0 +1,25 @@
+@font-face {
+  font-family: "Manrope-Light";
+  src: local("Manrope-Light"), url(./fonts/Manrope-Light.ttf);
+}
+
+@font-face {
+  font-family: "Outfit-Bold";
+  src: local("Outfit-Bold"), url(./fonts/Outfit-Bold.ttf);
+}
+
+:root {
+  --blue-light: #A3B8D6;
+  --blue: #1E2938;
+  --blue-dark: #141B25;
+  --blue-darker: #0A0E13;
+  --orange: #F2A366;
+  --orange-light: #F7C8A3;
+  --white: #FFFFFF;
+  --black: #000000;
+
+  --font-size-XL: 1.9rem;
+  --font-size-L: 1.6rem;
+  --font-size-M: 1.1rem;
+  --font-size-S: 0.8rem;
+}
