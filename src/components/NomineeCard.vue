@@ -37,6 +37,9 @@ defineProps<Props>();
     border: 3px solid transparent;
     transition-duration: 1s;
 }
+.nominee-card:active {
+    transform: scale(1.05);
+}
 .winner {
     border: 3px solid var(--orange);
     transform: scale(1.1);
