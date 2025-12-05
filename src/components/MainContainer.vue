@@ -24,6 +24,7 @@ main {
     background-image: url("../assets/img/background.jpg");
     background-blend-mode: multiply;
     background-position: center;
+    filter: blur(4px);
 }
 .main-content {
     display: flex;

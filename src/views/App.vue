@@ -5,6 +5,7 @@ import FooterBar from "@/components/FooterBar.vue";
 import HeaderBar from "@/components/HeaderBar.vue";
 import MainContainer from "@/components/MainContainer.vue";
 import NomineeCard from "@/components/NomineeCard.vue";
+import TrackPlayer from "@/components/TrackPlayer.vue";
 import {useLeaderboard} from "@/stores/leaderboards.ts";
 
 const selectedLeaderboard = computed(() => useLeaderboard().selectedLeaderboard);
@@ -14,7 +15,7 @@ const categoriesRef = useTemplateRef<HTMLInputElement[]>('categories');
 
 function revealWinner(category: string) {
     revealedCategories.value.push(category);
-    categoriesRef.value![selectedLeaderboard.value.findIndex(({name}) => name === category)].scrollIntoView({behavior: "smooth"});
+    categoriesRef.value![selectedLeaderboard.value.findIndex(({name}) => name === category)]!.scrollIntoView({behavior: "smooth"});
 }
 
 watch(selectedLeaderboard, () => revealedCategories.value = []);
@@ -32,6 +33,7 @@ watch(selectedLeaderboard, () => revealedCategories.value = []);
                     v-for="(nominee, index) in nominees"
                     :nominee="nominee"
                     :isWinner="index === winnerId && revealedCategories.includes(name)"
+                    :hasPlayer="name.includes('Best song')"
                     :key="nominee"
                 />
             </div>
@@ -46,6 +48,8 @@ watch(selectedLeaderboard, () => revealedCategories.value = []);
                 </Transition>
             </div>
         </div>
+
+        <TrackPlayer />
     </MainContainer>
 
     <FooterBar />

@@ -81,5 +81,6 @@ header {
     font-family: Outfit-Bold, sans-serif;
     color: var(--white);
     user-select: none;
+    white-space: nowrap;
 }
 </style>

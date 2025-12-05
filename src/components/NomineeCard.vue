@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import NomineeImage from "@/components/NomineeImage.vue";
+import NomineePlayerOverlay from "@/components/NomineePlayerOverlay.vue";
 
 interface Props {
     nominee: string;
     isWinner: boolean;
+    hasPlayer: boolean;
 }
 defineProps<Props>();
 </script>
@@ -13,7 +15,10 @@ defineProps<Props>();
         <div :class="['nominee-card', {winner: isWinner}]">
             <NomineeImage
                 :nominee="nominee"
-                :isWinner="isWinner"
+            />
+            <NomineePlayerOverlay
+                v-if="hasPlayer"
+                :nominee="nominee"
             />
         </div>
         <p :class="['nominee-text', {'winner-name': isWinner}]">{{ nominee }}</p>
@@ -30,10 +35,11 @@ defineProps<Props>();
     padding: 0.5rem 1rem;
 }
 .nominee-card {
-    background-color: var(--blue);
+    position: relative;
     display: flex;
     flex: 1;
     aspect-ratio: 1;
+    background-color: var(--blue);
     border: 3px solid transparent;
     transition-duration: 1s;
 }

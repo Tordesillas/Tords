@@ -3,11 +3,10 @@ import {ref} from "vue";
 
 interface Props {
     nominee: string;
-    isWinner: boolean;
 }
 const props = defineProps<Props>();
 
-const filename = props.nominee.toLowerCase().split(' ')[0].replace(/[-,:]/g, '');
+const filename = props.nominee.toLowerCase().split(' ')[0]!.replace(/[-,:]/g, '');
 const imgUrl = new URL(`../assets/img/${filename}.jpg`, import.meta.url).href;
 
 const isImgLoaded = ref<boolean>(false);
@@ -31,6 +30,7 @@ function onImgLoad() {
 <style scoped>
 .img-wrapper {
     position: relative;
+    user-select: none;
 }
 img {
     width: 100%;

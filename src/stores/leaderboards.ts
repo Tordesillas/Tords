@@ -156,7 +156,7 @@ export const useLeaderboard = defineStore('leaderboards', () => {
         }
     ]);
 
-    const selectedYear = ref<string>(leaderboards.value[0].year);
+    const selectedYear = ref<string>(leaderboards.value[0]!.year);
     function changeSelectedYear(newYear: string) {
         selectedYear.value = newYear;
     }
