@@ -51,12 +51,9 @@ defineEmits<Emits>();
 }
 .animated-background {
     position: absolute;
-    top: 0.3rem;
-    left: 0.3rem;
-    bottom: 0.3rem;
-    right: 0.3rem;
+    inset: 0.3rem;
     border-radius: 0.5rem;
-    background: linear-gradient(-45deg, transparent 35%, var(--orange-light) 49%, var(--orange-light) 51%, transparent 65%);
+    background: linear-gradient(-45deg, transparent 30%, var(--orange-light) 49%, var(--orange-light) 51%, transparent 60%);
     background-size: 300% 300%;
     animation: gradient 2s linear infinite;
     pointer-events: none;
@@ -64,6 +61,9 @@ defineEmits<Emits>();
 @keyframes gradient {
     0% {
         background-position: 0 0;
+    }
+    50% {
+        background-position: 100% 100%;
     }
     100% {
         background-position: 100% 100%;
