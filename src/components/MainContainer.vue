@@ -1,6 +1,6 @@
 <template>
     <main>
-        <div class="background" />
+        <span class="background" />
         <div class="main-content">
             <slot/>
         </div>
@@ -29,9 +29,13 @@ main {
 .main-content {
     display: flex;
     margin: 0 auto;
-    padding: 5rem;
+    padding: 80px 60px;
     width: 100%;
-    max-width: 70rem;
+    max-width: 1000px;
     flex-direction: column;
+
+    @media (width <= 600px) {
+        padding: 80px 20px;
+    }
 }
 </style>

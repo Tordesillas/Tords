@@ -1,6 +1,7 @@
 <script setup lang="ts">
 interface Props {
     text: string;
+    visible: boolean;
 }
 defineProps<Props>();
 
@@ -11,15 +12,23 @@ defineEmits<Emits>();
 </script>
 
 <template>
-    <div class="button-wrapper">
-        <div class="button" @click="$emit('onClick')">
-            <span class="button-text">{{ text }}</span>
+    <Transition>
+        <div v-if="visible" class="button-wrapper">
+            <div class="button" @click="$emit('onClick')">
+                <span class="button-text">{{ text }}</span>
+            </div>
+            <div class="animated-background" />
         </div>
-        <div class="animated-background" />
-    </div>
+    </Transition>
 </template>
 
 <style scoped>
+.v-leave-active {
+    transition: opacity 0.3s ease;
+}
+.v-leave-to {
+    opacity: 0;
+}
 .button-wrapper {
     position: relative;
     height: fit-content;
@@ -45,6 +54,10 @@ defineEmits<Emits>();
     }
 }
 .button-text {
+    display: flex;
+    flex: 1;
+    text-align: center;
+
     font-size: var(--font-size-M);
     font-family: Manrope-Light, sans-serif;
     color: var(--black);

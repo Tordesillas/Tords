@@ -28,24 +28,25 @@ watch(selectedLeaderboard, () => revealedCategories.value = []);
         <div v-for="{name, nominees, winnerId} in selectedLeaderboard" ref="categories" class="categories">
             <p class="category">{{ name }}</p>
 
-            <div class="nominees">
-                <NomineeCard
-                    v-for="(nominee, index) in nominees"
-                    :nominee="nominee"
-                    :isWinner="index === winnerId && revealedCategories.includes(name)"
-                    :hasPlayer="name.includes('Best song')"
-                    :key="nominee"
-                />
-            </div>
+            <Transition name="fade" mode="out-in">
+                <div class="nominees" :key="selectedLeaderboard[0]!.nominees[0]">
+                    <NomineeCard
+                        v-for="(nominee, index) in nominees"
+                        :nominee="nominee"
+                        :isWinner="index === winnerId && revealedCategories.includes(name)"
+                        :hasPlayer="name.includes('Best song')"
+                        :key="nominee"
+                    />
+                </div>
+            </Transition>
 
             <div class="reveal-wrapper">
-                <Transition>
-                    <Button
-                        v-if="!revealedCategories.includes(name) && nominees.length > 1"
-                        text="Reveal the winner"
-                        @onClick="revealWinner(name)"
-                    />
-                </Transition>
+                <Button
+                    v-if="nominees.length > 1"
+                    text="Reveal the winner"
+                    :visible="!revealedCategories.includes(name)"
+                    @onClick="revealWinner(name)"
+                />
             </div>
         </div>
 
@@ -65,6 +66,13 @@ watch(selectedLeaderboard, () => revealedCategories.value = []);
     font-family: Outfit-Bold, sans-serif;
     color: var(--orange);
 }
+.fade-enter-active, .fade-leave-active {
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.fade-enter-from, .fade-leave-to  {
+    opacity: 0;
+    transform: scale(0.97);
+}
 .nominees {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
@@ -75,11 +83,5 @@ watch(selectedLeaderboard, () => revealedCategories.value = []);
     flex: 1;
     justify-content: center;
     height: 5rem;
-}
-.v-leave-active {
-    transition: opacity 0.3s ease;
-}
-.v-leave-to {
-    opacity: 0;
 }
 </style>

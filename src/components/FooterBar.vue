@@ -30,6 +30,7 @@ footer {
 }
 .logo {
     height: 6rem;
+    user-select: none;
 }
 .text {
     display: flex;

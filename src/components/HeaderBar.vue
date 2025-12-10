@@ -88,10 +88,15 @@ header {
     align-items: center;
     background-color: #0A0E13B0;
     backdrop-filter: blur(15px);
+
+    @media (width <= 600px) {
+        padding: 0;
+    }
 }
 .logo {
     height: 3rem;
     margin-left: 2rem;
+    user-select: none;
 }
 .app-name {
     margin: 0 2rem 0 1rem;
@@ -154,6 +159,7 @@ select {
     align-items: center;
     border: none;
     border-bottom: 1px solid var(--white);
+    outline: none;
     cursor: pointer;
     padding: 0 14px;
 
