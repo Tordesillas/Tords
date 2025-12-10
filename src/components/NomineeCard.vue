@@ -31,8 +31,7 @@ defineProps<Props>();
     flex: 1;
     flex-direction: column;
     aspect-ratio: 1;
-    max-width: 20rem;
-    padding: 0.5rem 1rem;
+    max-width: 250px;
 }
 .nominee-card {
     position: relative;
@@ -41,19 +40,28 @@ defineProps<Props>();
     aspect-ratio: 1;
     background-color: var(--blue);
     border: 3px solid transparent;
-    transition-duration: 1s;
-}
-.nominee-card:active {
-    transform: scale(1.05);
+    transition: transform 1.4s ease, filter 0.8s ease;
+    will-change: transform, filter;
+
+    &:hover {
+        transform: scale(1.02);
+        transition: transform 0.2s ease;
+        filter: brightness(1.1);
+    }
 }
 .winner {
     border: 3px solid var(--orange);
     transform: scale(1.1);
     box-shadow: 0 3px 10px var(--orange);
+
+    &:hover {
+        transform: scale(1.12);
+    }
 }
 .nominee-text {
     width: 100%;
-    padding: 1rem;
+    padding-top: 8px;
+    padding-bottom: 12px;
     text-align: center;
     transition-duration: 1s;
     font-size: var(--font-size-M);
@@ -62,5 +70,7 @@ defineProps<Props>();
 }
 .winner-name {
     color: var(--orange);
+    padding-top: 16px;
+    padding-bottom: 4px;
 }
 </style>

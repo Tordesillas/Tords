@@ -46,6 +46,7 @@ function onClickOnOverlay() {
 .player-overlay {
     position: absolute;
     inset: 0;
+    cursor: pointer;
 }
 .overlay-button-wrapper {
     opacity: 0;

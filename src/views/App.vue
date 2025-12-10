@@ -75,13 +75,14 @@ watch(selectedLeaderboard, () => revealedCategories.value = []);
 }
 .nominees {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
     justify-content: center;
 }
 .reveal-wrapper {
     display: flex;
-    flex: 1;
     justify-content: center;
-    height: 5rem;
+    align-items: center;
+    height: 6rem;
 }
 </style>

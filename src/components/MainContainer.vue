@@ -31,7 +31,7 @@ main {
     margin: 0 auto;
     padding: 80px 60px;
     width: 100%;
-    max-width: 1000px;
+    max-width: 1100px;
     flex-direction: column;
 
     @media (width <= 600px) {

@@ -29,12 +29,15 @@ function onImgLoad() {
 
 <style scoped>
 .img-wrapper {
+    display: flex;
+    flex: 1;
     position: relative;
     user-select: none;
 }
 img {
     width: 100%;
-    height: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
     pointer-events: none;
 }
 .loading-background {
