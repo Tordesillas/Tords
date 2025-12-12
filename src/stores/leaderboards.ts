@@ -5,6 +5,26 @@ import type {Leaderboard} from "@/models";
 export const useLeaderboard = defineStore('leaderboards', () => {
     const leaderboards = ref<Leaderboard[]>([
         {
+            year: '2025',
+            categories: [
+                {
+                    name: 'Best song',
+                    nominees: ['Phuture Noize - Stop the bleeding', 'Deezl - REBIRTH', 'D-Block & S-te-fan - New day to remember', 'B-Front, Galactixx - My history', 'Krowdexx - WE THE LOUDEST', 'Rebelion - We own the night'],
+                    winnerId: 2
+                },
+                {
+                    name: 'Best artist',
+                    nominees: ['Alan Walker', 'D-Block & S-te-fan', 'Deezl', 'Krowdexx', 'Phuture Noize'],
+                    winnerId: 2
+                },
+                {
+                    name: 'Best game',
+                    nominees: ['Bear and Breakfast', 'The Lord of the Rings Return to Moria', 'Sniper Ghost Warrior Contracts', 'Infinifactory', 'Severed Steel', 'Clair Obscur Expedition 33'],
+                    winnerId: 5
+                }
+            ]
+        },
+        {
             year: '2024',
             categories: [
                 {
