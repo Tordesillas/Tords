@@ -8,6 +8,7 @@ const audioPlayer = ref<HTMLAudioElement | null>(null);
 onMounted(() => {
     if (audioPlayer.value) {
         audioStore.setAudioElement(audioPlayer.value);
+        audioPlayer.value.volume = 0.3;
     }
 });
 

@@ -49,8 +49,10 @@ function onClickOnOverlay() {
     cursor: pointer;
 }
 .overlay-button-wrapper {
+    display: flex;
     opacity: 0;
     transition: opacity 0.2s ease;
+    will-change: opacity;
 
     &:hover {
         opacity: 0.8;

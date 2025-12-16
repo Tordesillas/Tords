@@ -29,13 +29,13 @@ main {
 .main-content {
     display: flex;
     margin: 0 auto;
-    padding: 80px 60px;
+    padding: 80px;
     width: 100%;
-    max-width: 1100px;
+    max-width: 1200px;
     flex-direction: column;
 
     @media (width <= 600px) {
-        padding: 80px 20px;
+        padding: 80px 40px;
     }
 }
 </style>

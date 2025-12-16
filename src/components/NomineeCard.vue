@@ -28,10 +28,8 @@ defineProps<Props>();
 <style scoped>
 .nominee-slot {
     display: flex;
-    flex: 1;
     flex-direction: column;
     aspect-ratio: 1;
-    max-width: 250px;
 }
 .nominee-card {
     position: relative;
